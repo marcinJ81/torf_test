@@ -9,7 +9,7 @@
     {
         public int WP_id { get; set; }
         public DateTime? WP_StartDate { get; set; }
-        public DateTime? WP_EndDAta { get; set; }
+        public DateTime? WP_EndData { get; set; }
         public Employee Employee { get; set; }
     }
     public class RCP
@@ -17,16 +17,32 @@
         public int RCP_id { get; set; }
         public DateTime? RCP_StartDate { get; set; }
         public DateTime? RCP_EndDAta { get; set; }
+        public TimeSpan RCP_Realization { get; set; }
+        public bool RCP_DaysPayCounted { get; set; }
         public Employee Employee { get; set; }
     }
 
     public class Realization
-    {
-        public bool CompletingTheDaysWork(int empid, DateTime startDate, DateTime endDate)
+    { 
+        public bool CompletingTheDaysWork(DateTime startDate, DateTime endDate)
         {
-            return false;
+            if(startDate.TimeOfDay >= endDate.TimeOfDay)
+            {
+                return false;
+            }
+            else
+            {
+                var workTime = endDate.TimeOfDay - startDate.TimeOfDay;
+                TimeSpan eightHourDay = new TimeSpan(0, 8, 0, 0);
+                if(workTime == eightHourDay)
+                {
+                    return true;
+                }
+                return false;
+            } 
         }
     }
+
     internal class Program
     {
         //Zakładam firmę będe wydobywał torf i sprzedawał
@@ -35,15 +51,7 @@
         //Musze sprawdzać czy jest w pracy, żeby mu wypłate policzyć
         static void Main(string[] args)
         {
-
-
-
             Console.WriteLine("Hello, World!");
-        }
-
-        public bool CompletingTheDaysWork(DateTime startDate, DateTime endDate)
-        {
-            return false;
         }
     }
 }

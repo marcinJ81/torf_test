@@ -12,13 +12,34 @@ namespace TorfTest
         [Test]
         public void CompletDayWork()
         {
-            int employee_id = 1;
-            DateTime startDate = new DateTime(2023, 01, 23, 6, 0);
-            DateTime endDate = new DateTime(2023, 01, 23, 14, 0);
+            DateTime startDate = new DateTime(2023, 01, 23, 6, 0,0);
+            DateTime endDate = new DateTime(2023, 01, 23, 14, 0,0);
 
-            realiztion.CompletingTheDaysWork(employee_id,)
+            bool result = realiztion.CompletingTheDaysWork(startDate, endDate);
 
-            Assert.Pass();
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void DayWorkNotCompleted()
+        {
+            DateTime startDate = new DateTime(2023, 01, 23, 6, 0, 0);
+            DateTime endDate = new DateTime(2023, 01, 23, 12, 0, 0);
+
+            bool result = realiztion.CompletingTheDaysWork(startDate, endDate);
+
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void WorkdayNotCountedBadReflection()
+        {
+            DateTime startDate = new DateTime(2023, 01, 23, 6, 0, 0);
+            DateTime endDate = new DateTime(2023, 01, 23, 12, 0, 0);
+
+            bool result = realiztion.CompletingTheDaysWork(endDate, startDate);
+
+            Assert.IsFalse(result);
         }
     }
 }
