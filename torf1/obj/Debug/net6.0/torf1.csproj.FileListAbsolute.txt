@@ -1,0 +1,15 @@
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\bin\Debug\net6.0\torf1.exe
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\bin\Debug\net6.0\torf1.deps.json
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\bin\Debug\net6.0\torf1.runtimeconfig.json
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\bin\Debug\net6.0\torf1.dll
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\bin\Debug\net6.0\torf1.pdb
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\obj\Debug\net6.0\torf1.csproj.AssemblyReference.cache
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\obj\Debug\net6.0\torf1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\obj\Debug\net6.0\torf1.AssemblyInfoInputs.cache
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\obj\Debug\net6.0\torf1.AssemblyInfo.cs
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\obj\Debug\net6.0\torf1.csproj.CoreCompileInputs.cache
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\obj\Debug\net6.0\torf1.dll
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\obj\Debug\net6.0\refint\torf1.dll
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\obj\Debug\net6.0\torf1.pdb
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\obj\Debug\net6.0\torf1.genruntimeconfig.cache
+C:\Users\domek\Documents\Sklep_z_ torfem\torf1\torf1\obj\Debug\net6.0\ref\torf1.dll

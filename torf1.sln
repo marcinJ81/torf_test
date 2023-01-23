@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "torf1", "torf1\torf1.csproj", "{51922D4A-5809-46B5-93EE-F968E2BEBE59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorfTest", "TorfTest\TorfTest.csproj", "{BD30F797-3E03-424E-B828-3C156A1A674A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51922D4A-5809-46B5-93EE-F968E2BEBE59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51922D4A-5809-46B5-93EE-F968E2BEBE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51922D4A-5809-46B5-93EE-F968E2BEBE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51922D4A-5809-46B5-93EE-F968E2BEBE59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD30F797-3E03-424E-B828-3C156A1A674A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD30F797-3E03-424E-B828-3C156A1A674A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD30F797-3E03-424E-B828-3C156A1A674A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD30F797-3E03-424E-B828-3C156A1A674A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3506D3B-6A57-4F5A-A3FF-1144981BEF9A}
+	EndGlobalSection
+EndGlobal
