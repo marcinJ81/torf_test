@@ -3,7 +3,7 @@ namespace TorfTest
 {
     public class Tests
     {
-        Realization realiztion = new Realization(
+        Realization realization = new Realization(
           new RCP() 
           {
             RCP_id = 1,
@@ -36,7 +36,7 @@ namespace TorfTest
             DateTime startDate = new DateTime(2023, 01, 23, 6, 0,0);
             DateTime endDate = new DateTime(2023, 01, 23, 14, 0,0);
 
-            bool result = realiztion.CompletingTheDaysWork(startDate, endDate);
+            bool result = realization.CompletingTheDaysWork(startDate, endDate);
 
             Assert.IsTrue(result);
         }
@@ -47,7 +47,7 @@ namespace TorfTest
             DateTime startDate = new DateTime(2023, 01, 23, 6, 0, 0);
             DateTime endDate = new DateTime(2023, 01, 23, 12, 0, 0);
 
-            bool result = realiztion.CompletingTheDaysWork(startDate, endDate);
+            bool result = realization.CompletingTheDaysWork(startDate, endDate);
 
             Assert.IsFalse(result);
         }
@@ -57,7 +57,7 @@ namespace TorfTest
         [TestCase("2023-01-23 6:15:0", "2023-01-23 13:59:0")]
         public void WorkdayNotCountedBadReflection(DateTime startDate, DateTime endDate)
         {
-            bool result = realiztion.CompletingTheDaysWork(startDate,endDate);
+            bool result = realization.CompletingTheDaysWork(startDate,endDate);
 
             Assert.IsFalse(result);
         }
@@ -68,7 +68,7 @@ namespace TorfTest
         [TestCase("2023-01-23 6:00:0", "2023-01-23 14:00:0")]
         public void WorkdayCountedEntryToWorkBeforeTheStartOfTheShift(DateTime startDate, DateTime endDate)
         {
-            bool result = realiztion.CompletingTheDaysWork(startDate, endDate);
+            bool result = realization.CompletingTheDaysWork(startDate, endDate);
 
             Assert.IsTrue(result);
         }
