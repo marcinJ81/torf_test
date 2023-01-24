@@ -8,16 +8,19 @@
     public class WorkPlan
     {
         public int WP_id { get; set; }
-        public DateTime? WP_StartDate { get; set; }
-        public DateTime? WP_EndData { get; set; }
+        public DateTime WP_Day { get; set; }
+        public TimeSpan WP_StartTime { get; set; }
+        public TimeSpan WP_EndTime { get; set; }
+        public TimeSpan WP_ShiftLength { get; set; }
         public Employee Employee { get; set; }
     }
     public class RCP
     {
         public int RCP_id { get; set; }
-        public DateTime? RCP_StartDate { get; set; }
-        public DateTime? RCP_EndDAta { get; set; }
-        public TimeSpan RCP_Realization { get; set; }
+        public TimeSpan RCP_StartRealTimeStart { get; set; }
+        public TimeSpan RCP_EndRealTimeStart { get; set; }
+        public TimeSpan RCP_RealizationTolerance { get; set; }
+        public DateTime RCP_DayRealization { get; set; }
         public bool RCP_DaysPayCounted { get; set; }
         public Employee Employee { get; set; }
     }
@@ -32,9 +35,13 @@
             }
             else
             {
+                TimeSpan fifteenMinuteTolerance = new TimeSpan(0,15,0);
                 var workTime = endDate.TimeOfDay - startDate.TimeOfDay;
                 TimeSpan eightHourDay = new TimeSpan(0, 8, 0, 0);
-                if(workTime == eightHourDay)
+                TimeSpan startShiftWitTolerence = new TimeSpan(6, 0, 0) - fifteenMinuteTolerance;
+                TimeSpan endShiftWithTolerence = new TimeSpan(14, 0, 0) + fifteenMinuteTolerance;
+                if ((workTime >= eightHourDay) 
+                    && (startDate.TimeOfDay >= startShiftWitTolerence && endDate.TimeOfDay <= endShiftWithTolerence))
                 {
                     return true;
                 }
