@@ -1,4 +1,6 @@
-﻿namespace torf1
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace torf1
 {
     public class Employee
     {
@@ -8,7 +10,6 @@
     public class WorkPlan
     {
         public int WP_id { get; set; }
-        public DateTime WP_Day { get; set; }
         public TimeSpan WP_StartTime { get; set; }
         public TimeSpan WP_EndTime { get; set; }
         public TimeSpan WP_ShiftLength { get; set; }
@@ -19,14 +20,42 @@
         public int RCP_id { get; set; }
         public TimeSpan RCP_StartRealTimeStart { get; set; }
         public TimeSpan RCP_EndRealTimeStart { get; set; }
-        public TimeSpan RCP_RealizationTolerance { get; set; }
-        public DateTime RCP_DayRealization { get; set; }
+        public TimeSpan RCP_RealizationTolerance { get; set; }    
         public bool RCP_DaysPayCounted { get; set; }
         public Employee Employee { get; set; }
     }
 
     public class Realization
-    { 
+    {
+        private RCP RCP { get; set; }
+        private WorkPlan WorkPlan { get; set; }
+        private Employee Employee { get; set; }
+
+        public Realization(RCP rCP, WorkPlan workPlan, Employee employee)
+        {
+            RCP = rCP;
+            WorkPlan = workPlan;
+            Employee = employee;
+        }
+
+        public void SetDaysPayCounted()
+        {
+            var result = CompletingTheDaysWork(DateTime.MinValue + RCP.RCP_StartRealTimeStart, DateTime.MinValue + RCP.RCP_EndRealTimeStart);
+            if(result)
+            {
+                RCP.RCP_DaysPayCounted = result;
+            }
+            else
+            {
+                RCP.RCP_DaysPayCounted = result;
+            }
+        }
+
+        public RCP GetRCPDay()
+        {
+            return RCP;
+        }
+
         public bool CompletingTheDaysWork(DateTime startDate, DateTime endDate)
         {
             if(startDate.TimeOfDay >= endDate.TimeOfDay)

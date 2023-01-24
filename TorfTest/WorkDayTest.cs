@@ -3,7 +3,28 @@ namespace TorfTest
 {
     public class Tests
     {
-        Realization realiztion = new Realization();
+        Realization realiztion = new Realization(
+          new RCP() 
+          {
+            RCP_id = 1,
+            RCP_DaysPayCounted = false,
+            RCP_EndRealTimeStart = new TimeSpan(14,5,0),
+            RCP_StartRealTimeStart = new TimeSpan(5,55,0),
+            RCP_RealizationTolerance = new TimeSpan(0,15,0)
+          }
+        , new WorkPlan()
+          { 
+            WP_id = 1,
+            WP_StartTime = new TimeSpan(6,0,0),
+            WP_EndTime = new TimeSpan(14,0,0),
+            WP_ShiftLength = new TimeSpan(8,0,0)
+          }
+        , new Employee()
+          {
+            Employee_Id = 1,
+            Employee_Name = "Employee"
+          }
+        );
         [SetUp]
         public void Setup()
         {
