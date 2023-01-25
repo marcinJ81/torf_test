@@ -1,4 +1,7 @@
 using torf1;
+using torf1.WorkingTtimeRegistrationSystem;
+using torf1.WorkPlanForRCP;
+
 namespace TorfTest
 {
     public class Tests
@@ -19,16 +22,13 @@ namespace TorfTest
             WP_EndTime = new TimeSpan(14,0,0),
             WP_ShiftLength = new TimeSpan(8,0,0)
           }
-        , new Employee()
-          {
-            Employee_Id = 1,
-            Employee_Name = "Employee"
-          }
         );
         [SetUp]
         public void Setup()
         {
         }
+
+
 
         [Test]
         public void CompletDayWork()
@@ -37,7 +37,6 @@ namespace TorfTest
             DateTime endDate = new DateTime(2023, 01, 23, 14, 0,0);
 
             bool result = realization.CompletingTheDaysWork(startDate, endDate);
-
             Assert.IsTrue(result);
         }
 
@@ -48,7 +47,6 @@ namespace TorfTest
             DateTime endDate = new DateTime(2023, 01, 23, 12, 0, 0);
 
             bool result = realization.CompletingTheDaysWork(startDate, endDate);
-
             Assert.IsFalse(result);
         }
 
@@ -66,11 +64,18 @@ namespace TorfTest
         [TestCase("2023-01-23 5:45:0", "2023-01-23 14:0:0")]
         [TestCase("2023-01-23 6:00:0", "2023-01-23 14:15:0")]
         [TestCase("2023-01-23 6:00:0", "2023-01-23 14:00:0")]
-        public void WorkdayCountedEntryToWorkBeforeTheStartOfTheShift(DateTime startDate, DateTime endDate)
+        public void WorkdayCounted(DateTime startDate, DateTime endDate)
         {
             bool result = realization.CompletingTheDaysWork(startDate, endDate);
 
             Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void WorkdayCounted()
+        {
+            realization.SetDaysPayCounted();
+            Assert.IsTrue(realization.GetRCPDay().RCP_DaysPayCounted);
         }
     }
 }
