@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using torf1.WorkingTtimeRegistrationSystem;
+﻿using torf1.WorkingTtimeRegistrationSystem;
 using torf1.WorkPlanForRCP;
 namespace torf1
 {
@@ -27,22 +26,22 @@ namespace torf1
 
         public bool CompletingTheDaysWork(DateTime startDate, DateTime endDate)
         {
-            if(startDate.TimeOfDay >= endDate.TimeOfDay)
+            if (startDate.TimeOfDay >= endDate.TimeOfDay)
             {
                 return false;
             }
             else
-            {              
+            {
                 var workTime = endDate.TimeOfDay - startDate.TimeOfDay;
                 TimeSpan startShiftWitTolerence = WorkPlan.WP_StartTime - RCP.RCP_RealizationTolerance;
                 TimeSpan endShiftWithTolerence = WorkPlan.WP_EndTime + RCP.RCP_RealizationTolerance;
-                if ((workTime >= WorkPlan.WP_ShiftLength) 
+                if ((workTime >= WorkPlan.WP_ShiftLength)
                     && (startDate.TimeOfDay >= startShiftWitTolerence && endDate.TimeOfDay <= endShiftWithTolerence))
                 {
                     return true;
                 }
                 return false;
-            } 
+            }
         }
     }
 
@@ -54,7 +53,7 @@ namespace torf1
         //Musze sprawdzać czy jest w pracy, żeby mu wypłate policzyć
         static void Main(string[] args)
         {
-            
+
         }
     }
 }
