@@ -15,14 +15,7 @@ namespace TorfTest
             RCP_StartRealTimeStart = new TimeSpan(5,55,0),
             RCP_RealizationTolerance = new TimeSpan(0,15,0)
           }
-        , new WorkPlan()
-          { 
-            WP_id = 1,
-            WP_StartTime = new TimeSpan(6,0,0),
-            WP_EndTime = new TimeSpan(14,0,0),
-            WP_ShiftLength = new TimeSpan(8,0,0)
-          }
-        );
+        , new WorkPlan(1, new TimeSpan(6,0,0), new TimeSpan(14,0,0), new TimeSpan(8,0,0)));
         [SetUp]
         public void Setup()
         {
