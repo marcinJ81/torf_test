@@ -26,18 +26,18 @@ namespace TorfTest
         public void ShouldSetCorrectEmptyShifts()
         {
             WorkPlan workPlanTest = new WorkPlan();
-            Assert.That((int)workPlanTest.Shift, Is.EqualTo((int)Shift.empty));
+            Assert.That((int)workPlanTest.ShiftType, Is.EqualTo((int)Shift.empty));
         }
 
         [TestCaseSource(nameof(DivideCases))]
         public void ShouldSetCorrectShift(WorkPlan workPlan)
         {
             if(workPlan.WP_id == 1 )
-                Assert.That((int)workPlan.Shift, Is.EqualTo((int)Shift.daily));
+                Assert.That((int)workPlan.ShiftType, Is.EqualTo((int)Shift.daily));
             if(workPlan.WP_id == 2)
-                Assert.That((int)workPlan.Shift, Is.EqualTo((int)Shift.afternoon));
+                Assert.That((int)workPlan.ShiftType, Is.EqualTo((int)Shift.afternoon));
             if(workPlan.WP_id == 3)
-                Assert.That((int)workPlan.Shift, Is.EqualTo((int)Shift.night));
+                Assert.That((int)workPlan.ShiftType, Is.EqualTo((int)Shift.night));
         }
 
     }

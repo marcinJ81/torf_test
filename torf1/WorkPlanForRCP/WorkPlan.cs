@@ -13,7 +13,7 @@ namespace torf1.WorkPlanForRCP
         public TimeSpan WP_StartTime { get; private set; }
         public TimeSpan WP_EndTime { get; private set; }
         public TimeSpan WP_ShiftLength { get; private set; }
-        public Shift Shift 
+        public Shift ShiftType 
         {
             get
             {
