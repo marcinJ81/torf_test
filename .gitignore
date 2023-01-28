@@ -192,3 +192,11 @@ paket-files/
 
 
 
+/.vs/torf1/v17/.suo
+/torf1/bin/Debug/net6.0/torf1.dll
+/torf1/bin/Debug/net6.0/torf1.pdb
+/torf1/obj/Debug/net6.0/ref/torf1.dll
+/torf1/obj/Debug/net6.0/refint/torf1.dll
+/torf1/obj/Debug/net6.0/torf1.dll
+/torf1/obj/Debug/net6.0/torf1.pdb
+/TorfTest/obj/Debug/net6.0/TorfTest.csproj.AssemblyReference.cache
