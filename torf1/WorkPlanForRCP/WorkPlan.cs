@@ -13,17 +13,17 @@ namespace torf1.WorkPlanForRCP
         public TimeSpan WP_StartTime { get; private set; }
         public TimeSpan WP_EndTime { get; private set; }
         public TimeSpan WP_ShiftLength { get; private set; }
-        public Shift ShiftType 
+        public ShiftType ShiftType 
         {
             get
             {
                 if (WP_StartTime == new TimeSpan(6, 0, 0) && WP_EndTime == new TimeSpan(14, 0, 0))
-                    return Shift.daily;
+                    return ShiftType.daily;
                 if (WP_StartTime == new TimeSpan(14, 0, 0) && WP_EndTime == new TimeSpan(22, 0, 0))
-                    return Shift.afternoon;
+                    return ShiftType.afternoon;
                 if (WP_StartTime == new TimeSpan(22, 0, 0) && WP_EndTime == new TimeSpan(6, 0, 0))
-                    return Shift.night;
-                return Shift.empty;
+                    return ShiftType.night;
+                return ShiftType.empty;
             }
         }
 

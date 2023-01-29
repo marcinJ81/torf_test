@@ -24,17 +24,31 @@ namespace torf1
             return RCP;
         }
 
-        public bool CompletingTheDaysWork(DateTime startDate, DateTime endDate)
+        private bool CompletingTheDaysWork(DateTime startDate, DateTime endDate)
         {
-            if (startDate.TimeOfDay >= endDate.TimeOfDay)
+            TimeSpan startShiftWitTolerence = WorkPlan.WP_StartTime - RCP.RCP_RealizationTolerance;
+            TimeSpan endShiftWithTolerence = WorkPlan.WP_EndTime + RCP.RCP_RealizationTolerance;
+            TimeSpan twentyFourHours = new TimeSpan(24, 0, 0);
+         
+            if (startDate.TimeOfDay >= endDate.TimeOfDay && WorkPlan.ShiftType == Enums.ShiftType.night)
             {
+
+                var startTime = startDate.TimeOfDay;
+                var endTime = endDate.TimeOfDay;
+                endTime += twentyFourHours;
+                var workTime = endTime - startTime;
+                endShiftWithTolerence += twentyFourHours;
+
+                if ((workTime >= WorkPlan.WP_ShiftLength)
+                    && (startTime >= startShiftWitTolerence && endTime <= endShiftWithTolerence))
+                {
+                    return true;
+                }
                 return false;
             }
             else
             {
                 var workTime = endDate.TimeOfDay - startDate.TimeOfDay;
-                TimeSpan startShiftWitTolerence = WorkPlan.WP_StartTime - RCP.RCP_RealizationTolerance;
-                TimeSpan endShiftWithTolerence = WorkPlan.WP_EndTime + RCP.RCP_RealizationTolerance;
                 if ((workTime >= WorkPlan.WP_ShiftLength)
                     && (startDate.TimeOfDay >= startShiftWitTolerence && endDate.TimeOfDay <= endShiftWithTolerence))
                 {

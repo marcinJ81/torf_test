@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace torf1.Enums
 {
-    public enum Shift 
+    public enum ShiftType 
     {  
         empty = 0,
         daily = 1,
