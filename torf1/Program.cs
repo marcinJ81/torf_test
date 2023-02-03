@@ -15,7 +15,7 @@ namespace torf1
 
         public void SetDaysPayCounted()
         {
-            var result = CompletingTheDaysWork(DateTime.MinValue + RCP.RCP_StartRealTimeStart, DateTime.MinValue + RCP.RCP_EndRealTimeStart);
+            var result = CompletingTheDaysWork();
             RCP.RCP_DaysPayCounted = result;
         }
 
@@ -24,17 +24,17 @@ namespace torf1
             return RCP;
         }
 
-        private bool CompletingTheDaysWork(DateTime startDate, DateTime endDate)
+        private bool CompletingTheDaysWork()
         {
             TimeSpan startShiftWitTolerence = WorkPlan.WP_StartTime - RCP.RCP_RealizationTolerance;
             TimeSpan endShiftWithTolerence = WorkPlan.WP_EndTime + RCP.RCP_RealizationTolerance;
             TimeSpan twentyFourHours = new TimeSpan(24, 0, 0);
          
-            if (startDate.TimeOfDay >= endDate.TimeOfDay && WorkPlan.ShiftType == Enums.ShiftType.night)
+            if (RCP.RCP_StartRealTimeStart >= RCP.RCP_EndRealTimeStart && WorkPlan.ShiftType == Enums.ShiftType.night)
             {
 
-                var startTime = startDate.TimeOfDay;
-                var endTime = endDate.TimeOfDay;
+                var startTime = RCP.RCP_StartRealTimeStart;
+                var endTime = RCP.RCP_EndRealTimeStart;
                 endTime += twentyFourHours;
                 var workTime = endTime - startTime;
                 endShiftWithTolerence += twentyFourHours;
@@ -48,9 +48,9 @@ namespace torf1
             }
             else
             {
-                var workTime = endDate.TimeOfDay - startDate.TimeOfDay;
+                var workTime = RCP.RCP_EndRealTimeStart - RCP.RCP_StartRealTimeStart;
                 if ((workTime >= WorkPlan.WP_ShiftLength)
-                    && (startDate.TimeOfDay >= startShiftWitTolerence && endDate.TimeOfDay <= endShiftWithTolerence))
+                    && (RCP.RCP_StartRealTimeStart >= startShiftWitTolerence && RCP.RCP_EndRealTimeStart <= endShiftWithTolerence))
                 {
                     return true;
                 }
